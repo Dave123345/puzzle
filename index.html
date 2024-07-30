@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Who are you?</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/3.3/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron" style="background-color: rebeccapurple;">
+            <p class="lead"></p>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <h4 style="color: aliceblue;">puzzle</h4>
+                    <h3 style="color:rebeccapurple;font-size: xx-small;">There are 10 people in a room, you go in and kill 8 of those 10. How many people actually remain in the room</h3>
+                </div>
+            </div>
+            <br/>
+            <input type="text" id="userInput" placeholder="What is your Answer?" required>
+            <button type="button" onclick="checkAnswer()">Submit</button>
+            <p id="resultMessage"></p>
+        </div>
+        <footer class="footer">
+            <p>&copy; selectCTF</p>
+        </footer>
+    </div>
+    <script>
+        function checkAnswer() {
+            var userInput = document.getElementById("userInput").value;
+            var resultMessage = document.getElementById("resultMessage");
+
+            fetch('message.json')
+            .then(response => response.json())
+            .then(data => {
+                if (data[userInput]) {
+                    resultMessage.innerHTML = data[userInput];
+                } else {
+                    resultMessage.innerHTML = "Try again.";
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching message:', error);
+                resultMessage.innerHTML = "Error loading message.";
+            });
+        }
+    </script>
+</body>
+</html>

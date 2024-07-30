@@ -1,0 +1,6 @@
+{
+    "10":"This counts everyone who is physically present in the room, including both the living and deceased. Even though 8 people were killed, their bodies are still in the room, so the total number of people present remains 10.",
+    "2": "This counts only the people who are alive. Since you killed 8 out of 10 people, the remaining 2 people are still alive.",
+    "11": "This includes everyone physically present in the room plus yourself. If you are included as part of the count, there would be 11 people in the room (10 original + flag <span style='color: rebeccapurple;'>selectCTF{my_answer_is_11}</span>).",
+    "1":"If the puzzle is interpreted to consider only those who are alive and the one who asked or created the puzzle is not counted as present, then you could end up with 1 person (the one remaining alive)."
+}
